@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Comfortaa:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>BMI CALCULATOR</title>
+</head>
+
+<!--------------------------STANDARD------------------------------->
+
+<body style="font-family: 'Comfortaa' ;">
+    <div id="standard">
+        <nav style="font-family: 'Comfortaa' ;"
+            class=" w-full font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white flex justify-between pr-4 pl-2 fixed">
+            <span class="pl-14 py-3 text-2xl"><a href="index.html">BMI CALCULATOR</a></span>
+            <!-- <ul class="pr-7 flex  py-3 text-xl space-x-7 justify-end pb-4 ">
+                <li class="cursor-pointer px-4">Home</li>
+                <li class="cursor-pointer pl-4 pr-2">About</li>
+                <li class="cursor-pointer px-4">Contact</li>
+            </ul> -->
+        </nav>
+    </div>
+
+    <main>
+
+        <div style="font-family: 'Comfortaa' ;"
+            class=" py-24 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+            <div class=" bg-white text-semibold font-bad-script mx-48 pt-20 pb-24 flex-col px-36 rounded-lg  ">
+                <h2 class="text-6xl font-bold pb-12">Standard BMI Calculation</h2>
+                <form id="form">
+
+                    <div class="flex ">
+                        <div class="   text-xl pr-4">
+                            <input required type="radio" id="" name="gender" value="female">
+                            <label class="pr-10" for="female">Female</label>
+
+                            <input required type="radio" id="" name="gender" value="male">
+                            <label for="male">Male</label>
+                        </div>
+                    </div>
+
+                    <div class=" py-4 my-4 text-xl">
+                        <label for="">Age (Adults only) </label>
+                        <input required class="rounded-lg border-2" placeholder="years" type="text">
+                    </div>
+
+                    <div id="values" class=" py-4 my-3 text-xl">
+                        <label for="">Height </label>
+                        <input required class="rounded-lg border-2 height" placeholder="inch" type="text">
+                        <label for=""> Weight </label>
+                        <input required class="rounded-lg border-2 weight" placeholder="lbs" type="text">
+
+                    </div>
+
+
+                    <div class=" flex justify-left  pt-4 mt-4 text-xl">
+
+                        <input class=" rounded-lg border-2 py-1 pl-4 pr-40 submit" onsubmit="takevalues()"
+                            value="Calculate" type="submit">
+
+
+                    </div>
+                    <div class="bmi">
+                        <p>Your BMI is</p>
+                    </div>
+                    <div class="flex pt- justify-left text-xl mt-10  ">
+                        <div class="pl-4 pr-24 border-2 rounded-lg mr-10  py-2  "><a href="bmi_index.html">Is my BMI
+                                Good?</a></div>
+                        <div class=" pl-4 pr-24 border-2 rounded-lg ml-10 py-2  "><a href="index.html">Back to Main
+                                Page</a></div>
+                    </div>
+
+
+
+                </form>
+                <script>
+
+                    function takevalues() {
+                        const a = parseFloat(document.querySelector(".height").value);
+                        const b = parseFloat(document.querySelector(".weight").value);
+                        const c = a * 0.0254;
+                        const d = b * 0.45359237;
+
+                        const e = d / (c * c);
+                        let f = document.querySelector(".bmi");
+                        f.innerHTML = "Your BMI is " + e.toFixed(2);
+                    }
+
+                    const form = document.getElementById("form");
+                    form.addEventListener("submit", function (event) {
+                        event.preventDefault(); // Prevent the default form submission
+                        takevalues(); // Call the function to calculate BMI
+                    });
+
+
+                </script>
+
+            </div>
+        </div>
+
+
+
+        <footer class="rounded-lg   py-2 mb-1">
+            <div id="about" class="flex  justify-center my-1 rounded-lg  ">
+                <p>BMI Calculator,<i> some rights reserved </i></p>
+            </div>
+            <hr>
+            <div id="contact">
+                <p class="flex  justify-center mt-2  "> Project by Namrata Nimmi </p>
+                <p class="flex  justify-center mb-1 ">
+                    <a href="mailto:bmi_cal@example.com"><b> namratajaisal5213@gmail.com</b></a>
+                </p>
+            </div>
+        </footer>
+</body>
+
+</html>
